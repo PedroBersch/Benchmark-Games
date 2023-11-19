@@ -45,7 +45,14 @@
                     }
                 ?>
             </select><br>
-
+            <label for="ram">Memoria RAM:</label>
+            <select name="ram" id="ram">
+                <?php
+                    foreach ($arrayram as $ram){
+                        echo "<option value='$ram[modeloRAM]'>$ram[modeloRAM]</option>";
+                    }
+                ?>
+            </select><br>
             <input type="submit" name="Enviar">
         </form>
         <p><a href="logout.php">Sair</a></p>
