@@ -13,7 +13,7 @@
 			}
 			$arrayUser[] = $usuario;
 			$userJson = json_encode($arrayUser);
-			$file = fopen(__DIR__ . './cadastroUser.json','w+');
+			$file = fopen(__DIR__ , './cadastroUser.json','w+');
 			fwrite($file, $userJson);
 			fclose($file);
 
