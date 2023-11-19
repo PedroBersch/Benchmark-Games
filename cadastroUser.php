@@ -7,8 +7,8 @@
 			$resp = "Preencha todos os campos!";
 		} else {
 			$arrayUser = array();
-			if(file_exists(__DIR__ . "./cadastroUser.json")){
-				$stringUser = file_get_contents(__DIR__ . "./cadastroUser.json");
+			if(file_exists(__DIR__ , "./cadastroUser.json")){
+				$stringUser = file_get_contents(__DIR__ , "./cadastroUser.json");
 				$arrayUser = json_decode($stringUser, true);
 			}
 			$arrayUser[] = $usuario;
