@@ -1,26 +1,4 @@
-<?php
-session_start();
-$resp = "";
-$usuario = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-if ($usuario) {
-    if (in_array('', $usuario)) {
-        $resp = "Preencha todos os campos!";
-    } else {
-        $encontrar = false;
-        if ("admin" == $usuario["nome"] && "admin" == $usuario["senha"]) {
-            $_SESSION["user"] = $usuario;
-            setcookie("logado", "Logado", time() + 60 * 60);
-            $encontrar = true;
-        }
-        if ($encontrar) {
-            header('Location: logadoADM.php');
-        } else {
-            $resp = "Administrador não encontrado!";
-        }
-    }
-}
-?>
 <html>
 
 <head>

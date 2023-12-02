@@ -1,20 +1,4 @@
-<?php
-session_start();
-if (empty($_SESSION["user"]) || empty($_COOKIE["logado"])) {
-    header("Location:loginUser.php");
-} else {
-    $user = $_SESSION["user"];
-}
 
-$cpuJSON = file_get_contents(__DIR__ . "./cpu.json");
-$arraycpu = json_decode($cpuJSON, true);
-$gpuJSON = file_get_contents(__DIR__ . "./gpu.json");
-$arraygpu = json_decode($gpuJSON, true);
-$ramJSON = file_get_contents(__DIR__ . "./ram.json");
-$arrayram = json_decode($ramJSON, true);
-$gameJSON = file_get_contents(__DIR__ . "./game.json");
-$arraygame = json_decode($gameJSON, true);
-?>
 <html>
 
 <head>
