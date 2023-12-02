@@ -1,4 +1,43 @@
+<?php
+session_start();
+if (empty($_SESSION["user"]) || empty($_COOKIE["logado"])) {
+    header("Location:loginADM.php");
+} else {
+    $user = $_SESSION["user"];
+}
 
+$info = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+$form;
+$pasta;
+
+if ($info) {
+    foreach ($info as $key => $value) {
+        if ($key == "modeloCPU") {
+            $form = "modeloCPU";
+            $pasta = "./cpu.json";
+        } else if ($key == "modeloGPU") {
+            $form = "modeloGPU";
+            $pasta = "./gpu.json";
+        } else if ($key == "modeloRAM") {
+            $form = "modeloRAM";
+            $pasta = "./ram.json";
+        } else if ($key == "nome") {
+            $form = "nome";
+            $pasta = "./game.json";
+        }
+    }
+    $arrayInfo = array();
+    if (file_exists(__DIR__ . $pasta)) {
+        $stringInfo = file_get_contents(__DIR__ . $pasta);
+        $arrayInfo = json_decode($stringInfo, true);
+    }
+    $arrayInfo[] = $info;
+    $infoJson = json_encode($arrayInfo);
+    $file = fopen(__DIR__ . $pasta, 'w+');
+    fwrite($file, $infoJson);
+    fclose($file);
+}
+?>
 <html>
 
 <head>
