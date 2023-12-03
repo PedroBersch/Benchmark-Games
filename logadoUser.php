@@ -3,6 +3,7 @@
 
 <head>
     <title>Benchmark Games</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
@@ -40,8 +41,8 @@
             ?>
         </select><br>
         <input type="submit" name="Enviar">
+        <p><a href="logout.php"><button>Sair</button></a></p>
     </form>
-    <p><a href="logout.php">Sair</a></p>
 </body>
 
 </html>

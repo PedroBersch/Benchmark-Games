@@ -42,6 +42,7 @@ if ($info) {
 
 <head>
     <title>Benchmark Games</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
